@@ -5,8 +5,6 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-config.i18n.default_locale = :ja
-config.i18n.load_path += Dir[Rails.root.join('config/locales/*.yml').to_s]
 
 module NaganoCake
   class Application < Rails::Application
@@ -19,3 +17,6 @@ module NaganoCake
     # the framework and any gems in your application.
   end
 end
+
+#config.i18n.default_locale = :ja
+#config.i18n.load_path += Dir[Rails.root.join('config/locales/*.yml').to_s]

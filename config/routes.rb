@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :items,except:[:destroy]
     resources :genres,except:[:show,:destroy,:new]
-    resources :customers,except:[:new,:destroy]
+    resources :customers,except:[:new,:create,:destroy]
     resources :orders,only:[:show,:update]
     resources :order_items,only:[:update]
   end
@@ -27,11 +27,12 @@ Rails.application.routes.draw do
     resources :orders,except:[:edit]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/thank' => 'orders#thank'
-    resource :customers,only:[:edit,:update]
-    get 'customers/mypage' => 'customers#mypage'
-    get 'customers/unsubscribe' => 'customers#unsubscribe'
-    patch 'customers/withdraw' => 'customers#withdraw'
-    resources :deliveries,except:[:show,:new]
+    resource :customers,only:[:edit,:update] do
+      get 'mypage' => 'customers#mypage'
+      get 'unsubscribe' => 'customers#unsubscribe'
+      patch 'withdraw' => 'customers#withdraw'
+      resources :deliveries,except:[:show,:new]
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

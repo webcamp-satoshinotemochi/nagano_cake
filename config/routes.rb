@@ -1,16 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :owner do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
-  end
-  namespace :public do
-    get 'cart_items/index'
-  end
-  get 'items/index'
-  get 'items/show'
   devise_for :owner,skip: [:registrations, :passwords] ,controllers: {
   sessions: "owner/sessions"
 }

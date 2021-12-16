@@ -8,12 +8,12 @@
         <div class="field">
           <th>名前</th>
           <td>
-            <%= f.label "(姓)" %>
-            <!--%= f.text_field :name, autofocus: true, class: "name" %>-->
+            <%= f.label "(姓)" %><br>
+            <%= f.text_field :family_name, autofocus: true, class: "name" %>
           </td>
           <td>
-            <%= f.label "(名)" %>
-            <!--%= f.text_field :name, autofocus: true, class: "name" %>-->
+            <%= f.label "(名)" %><br>
+            <%= f.text_field :first_name, autofocus: true, class: "name" %>
           </td>
         </div>
       </tr>
@@ -21,20 +21,20 @@
         <div class="field">
           <th>フリガナ</th>
           <td>
-            <%= f.label "(セイ)" %>
-            <!--%= f.text_field :name, autofocus: true, class: "name" %>-->
+            <%= f.label "(セイ)" %><br>
+            <%= f.text_field :family_name_kana, autofocus: true, class: "name" %>
           </td>
           <td>
-            <%= f.label "(メイ)" %>
-            <!--%= f.text_field :name, autofocus: true, class: "name" %>-->
+            <%= f.label "(メイ)" %><br>
+            <%= f.text_field :first_name_kana, autofocus: true, class: "name" %>
           </td>
         </div>
       </tr>
       <tr>
         <div class="field">
           <th>メールアドレス</th>
-          <td>
-            <%= f.email_field :email, size: 50, autofocus: true, autocomplete: "email" %>
+          <td colspan="2">
+            <%= f.email_field :email, size: 78, autofocus: true, autocomplete: "email" %>
           </td>
         </div>
       </tr>
@@ -42,7 +42,7 @@
         <div class="field">
           <th>郵便番号(ハイフンなし)</th>
           <td>
-            <!--%= f.email_field :email, autofocus: true, autocomplete: "email" %>-->
+            <%= f.text_field :post_address, autofocus: true %>
           </td>
         </div>
       </tr>
@@ -50,7 +50,7 @@
         <div class="field">
           <th>住所</th>
           <td>
-            <!--%= f.email_field :email, autofocus: true, autocomplete: "email" %>-->
+            <%= f.text_field :address, autofocus: true %>
           </td>
         </div>
       </tr>
@@ -58,7 +58,7 @@
         <div class="field">
           <th>電話番号(ハイフンなし)</th>
           <td>
-            <!--%= f.email_field :email, autofocus: true, autocomplete: "email" %>-->
+            <%= f.text_field :phone_number, autofocus: true %>
           </td>
         </div>
       </tr>

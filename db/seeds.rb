@@ -22,3 +22,9 @@ Customer.create!(
   password: "kairyu",
   is_deleted: false,
   )
+
+  Genre.create(
+  [{
+      name: "ケーキ"
+  }]
+  )

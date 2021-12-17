@@ -1,28 +1,38 @@
-<div class="row">
+<div class="container">
+ <div class="row">
   <div class="col m-3">
-    <h2>商品一覧</h2>
-    <table class='table'>
+    <h2>商品一覧</h2><br>
+        <p class="text-right"><%= link_to "商品を新規登録",new_owner_item_path %></p>
+    <table class= "table">
       <thead>
         <tr>
-          <th>商品ID</th>
-          <th>商品名</th>
-          <th>税抜価格</th>
-          <th>ジャンル</th>
-          <th>ステータス</th>
-          <th>商品名</th>
-          <th colspan="5"></th>
+          <th scope="col">商品ID</th>
+          <th scope="col">商品名</th>
+          <th scope="col">税抜価格</th>
+          <th scope="col">ジャンル</th>
+          <th></th>
+          <th scope="col">ステータス</th>
         </tr>
       </thead>
       <tbody>
         <% @items.each do |item| %>
         <tr>
-          <td><%= item.id %></td>
-          <td><%= link_to user_ item.name %></td>
-          <td><%=  %></td>
-    	    <td><%=  %></td>
+          <th scope="low"><%= item.id %></th>
+          <th scope="low"><%= link_to item.name,owner_items_path(item) %></th>
+          <th scope="low"><%= item.price_before_tax %></th>
+    	    <th scope="low"><%= item.genre.name %></th>
+    	    <th></th>
+    	    <th scope="low">
+    	     <% if item.is_active? %>
+					  <span class="badge" style="background:#8BCE9A">販売中</span>
+				   <% else %>
+					  <span class="badge" style="background:#D52438">販売停止中</span>
+				   <% end %>
+				  </th>
         </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-    </div>
+ </div>
+</div>

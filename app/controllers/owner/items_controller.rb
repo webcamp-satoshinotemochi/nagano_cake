@@ -1,4 +1,6 @@
 class Owner::ItemsController < ApplicationController
+  before_action :authenticate_owner!
+  #管理者でないとログイン画面に遷移
 
   def index
     @items = Item.page(params[:page]).per(10)

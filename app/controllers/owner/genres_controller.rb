@@ -1,4 +1,6 @@
 class Owner::GenresController < ApplicationController
+  before_action :authenticate_owner!
+  #管理者でないとログイン画面に遷移
 
   def index
     @genres = Genre.all
@@ -20,5 +22,4 @@ class Owner::GenresController < ApplicationController
   def genre_params
     params.require(:genre).permit(:name)
   end
-
 end

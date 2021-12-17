@@ -10,3 +10,8 @@ Genre.create(
       name: "ケーキ"
   }]
 )
+
+Owner.create!(
+  ENV['email'],
+  ENV['password']
+  )

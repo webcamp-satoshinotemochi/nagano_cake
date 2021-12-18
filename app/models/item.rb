@@ -8,6 +8,10 @@ class Item < ApplicationRecord
  has_many :orders,through: :order_items
  
  attachment :image
+ 
+  def add_tax_price_before_tax
+   (self.price_before_tax * 1.1).round
+  end
 
  validates :name,presence:true
  validates :body,presence:true

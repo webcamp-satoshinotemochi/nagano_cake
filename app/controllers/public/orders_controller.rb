@@ -13,13 +13,28 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
     @order.postage = 800
-    # @cart_items_total_price = @cart_items.item.all.sum(:subtotal)
+    @total_price_except_postage = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+    @amount_claimed = @total_price_except_postage + @order.postage
+
+    if params[:order]
+      @order.post_address = current_customer.post_address
+      @order.address = current_customer.address
+      @order.name = current_customer.full_name
+    end
   end
 
   def create
     order = Order.new(order_params)
     order.customer_id = current_customer.id
-    order.save
+    if order.save
+      current_customer.cart_items.each do |c|
+        OrderItem.create(order_id: order.id, item_id: c.item_id, order_quantity: c.quantity, price_after_tax: c.item.with_tax_price)
+      end
+      current_customer.cart_items.destroy_all
+      redirect_to orders_thank_path
+    else
+      redirect_to action: new
+    end
   end
 
   def thank

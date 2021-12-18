@@ -1,1 +1,52 @@
-<h1>カート内商品一覧画面(会員)</h1>
+<div class="container">
+  <div class="col m-3">
+    <h3>ショッピングカート</h3>
+  </div>
+  <div class="col-auto text-right">
+    <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "data-confirm" => "本当に消しますか?", class:"btn btn-danger" %>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">商品名</th>
+        <th scope="col">単価（税込）</th>
+        <th scope="col">数量</th>
+        <th scope="col">小計</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td>
+            <%= attachment_image_tag cart_item.item, :image, size: '50x50', fallback: "no-img.png" %>
+            <%= cart_item.item.name %>
+          </td>
+          <td><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
+          <td>
+            <%= form_with model: cart_item ,local: true do |f| %>
+              <%= f.select :quantity, *[1..10] %>
+              <%= f.submit "変更", class:"btn btn-outline-info" %>
+            <% end %>
+          </td>
+          <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+          <td><%= link_to "消去する", cart_item_path(cart_item), method: :delete, "date-confirm" => "本当に消去しますか?(◞‸◟)", class:"btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="row m-3">
+  <div class="col-4">
+  <%= link_to "買い物を続ける", root_path, class:"btn btn-primary btn-lg" %>
+  </div>
+  <div class="col-4 offset-4">
+    <tabel class="tabel tabele-bordered">
+      <tr>
+        <td>合計金額</td>
+        <td><%= @total.round.to_s(:delimited) %></td>
+      </tr>
+    </tabel>
+  </div>
+</div>
+<p class="text-center"><%= link_to "注文に進む", new_order_path, class:"btn btn-success" %></p>

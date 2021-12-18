@@ -1,1 +1,43 @@
-<h1>注文情報入力画面の表示</h1>
+<h1>注文情報入力</h1>
+<div class="field">
+  <h3>支払方法</h3>
+  <%= form_with model: @order, url:orders_confirm_path, local: true do |f| %>
+    <div class="ml-5">
+      <%= f.radio_button :pay_method, @credit_card %>
+      <%= f.label :pay_method, @credit_card_ja %><br>
+      <%= f.radio_button :pay_method, @transfer %>
+      <%= f.label :pay_method, @transfer_ja %>
+    </div>
+  <h3>お届け先</h3>
+    <div class="ml-5">
+      <%= f.radio_button :select_adress, 0 %>
+      <%= f.label :select_adress, "ご自身の住所" %><br>
+        <p class="ml-3">
+          <%= current_customer.post_address %>
+          &nbsp;&nbsp;&nbsp;&nbsp;<!--スペース-->
+          <%= current_customer.address %><br>
+          <%= current_customer.family_name %><%= current_customer.first_name %><br>
+        </p>
+    </div>
+    <div class="ml-5">
+      <%= f.radio_button :select_adress, 1 %>
+      <%= f.label :select_adress, "登録済住所から選択" %><br>
+      <%= f.collection_select :delivery_id, @deliveries, :id, :address, {prompt: "東京都千代田区丸の内00-00-00"} %>
+    </div>
+    <div class="ml-5">
+      <%= f.radio_button :select_adress, 2 %>
+      <%= f.label :select_adress, "新しいお届け先" %>
+      <div class="ml-3">
+        <%= f.label :"郵便番号（ハイフンなし）" %>
+        <%= f.text_field :post_address, placeholder: "0000000" %><br>
+        <%= f.label :"住所" %>
+        <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", :size=>"60" %><br>
+        <%= f.label:"宛名" %>
+        <%= f.text_field :name, placeholder: "令和道子" %>
+      </div>
+    </div>
+    <div class="text-center">
+      <%= f.submit "確認画面へ進む",class:"btn move_button motion my-3" %>
+    </div>
+  <% end %>
+</div>

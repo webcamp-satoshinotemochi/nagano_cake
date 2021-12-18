@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     resources :items,only:[:index,:show]
     resources :cart_items,except:[:show,:new,:edit]
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    delete 'cart_items' => 'cart_items#destroy_all'
     resources :orders,except:[:edit]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/thank' => 'orders#thank'

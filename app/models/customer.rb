@@ -16,4 +16,12 @@ class Customer < ApplicationRecord
   validates :first_name_kana,presence:true
   validates :post_address,presence:true,length: { is: 7 }
 
+  def full_address
+    '〒'+post_address+' '+address
+  end
+
+  def full_name
+    family_name+' '+first_name
+  end
+
 end

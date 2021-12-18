@@ -9,12 +9,17 @@ class Public::OrdersController < ApplicationController
     @deliveries = Delivery.where(customer_id:current_customer)
   end
 
-  def create
+  def confirm
+    @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
-    @order.save
+    @order.postage = 800
+    @cart_items_total_price = @cart_items.item.all.sum(:subtotal)
   end
 
-  def confirm
+  def create
+    order = Order.new(order_params)
+    order.customer_id = current_customer.id
+    order.save
   end
 
   def thank

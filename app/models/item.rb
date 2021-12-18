@@ -13,4 +13,8 @@ class Item < ApplicationRecord
  validates :body,presence:true
  validates :price_before_tax,presence:true
  
+ def plus_tax_price
+   (self.price*1.1).round
+ end
+ 
 end

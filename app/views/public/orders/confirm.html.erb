@@ -1,1 +1,36 @@
-<h1>注文情報入力の確認画面の表示だお</h1>
+<h1>注文情報確認</h1>
+<table class="table-bordered">
+  <thead class="thead-light">
+      <tr>
+        <td>商品名</td>
+        <td>単価(税込)</td>
+        <td>数量</td>
+        <td>小計</td>
+      </tr>
+    <%= @cart_items.each do |c| %>
+      <tr>
+        <td><%= c.item.name %></td>
+        <td><%= c.item.plus_tax_price.to_s(:delimited) %></td>
+        <td><%= c.item.quantity %></td>
+        <td><%= c.item.subtotal.to_s(:delimited) %></td>
+      </tr>
+    <% end %>
+    
+    <table>
+      <tbody>
+          <tr>
+            <th>送料</th>
+            <td><%= @order.postage %></td>
+          </tr>
+          <tr>
+            <th>商品合計</th>
+            <td><%= @cart_items_total_price.to_s(:delimited) %></td>
+          </tr>
+          <tr>
+            <th>請求金額</th>
+            <td></td>
+          </tr>
+      </tbody>
+    </table>
+  </thead>
+</table>

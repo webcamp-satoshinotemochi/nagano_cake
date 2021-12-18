@@ -13,16 +13,16 @@
       <%= f.radio_button :select_adress, 0 %>
       <%= f.label :select_adress, "ご自身の住所" %><br>
         <p class="ml-3">
-          <%= current_customer.post_address %>
-          &nbsp;&nbsp;&nbsp;&nbsp;<!--スペース-->
-          <%= current_customer.address %><br>
-          <%= current_customer.family_name %><%= current_customer.first_name %><br>
+          <%= current_customer.full_address %><br>
+          <%= current_customer.full_name %><br>
         </p>
     </div>
     <div class="ml-5">
       <%= f.radio_button :select_adress, 1 %>
       <%= f.label :select_adress, "登録済住所から選択" %><br>
-      <%= f.collection_select :delivery_id, @deliveries, :id, :address, {prompt: "東京都千代田区丸の内00-00-00"} %>
+        <p class="ml-3">
+          <%= f.collection_select :delivery_id, @deliveries, :id, :address, {prompt: "東京都千代田区丸の内00-00-00"} %>
+        </p>
     </div>
     <div class="ml-5">
       <%= f.radio_button :select_adress, 2 %>

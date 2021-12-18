@@ -18,7 +18,7 @@
         <% @items.each do |item| %>
         <tr>
           <th scope="low"><%= item.id %></th>
-          <th scope="low"><%= link_to item.name,owner_items_path(item) %></th>
+          <th scope="low"><%= link_to item.name, owner_item_path(item) %></th>
           <th scope="low"><%= item.price_before_tax %></th>
     	    <th scope="low"><%= item.genre.name %></th>
     	    <th></th>

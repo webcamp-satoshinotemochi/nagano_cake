@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
     @order.postage = 800
-    @cart_items_total_price = @cart_items.item.all.sum(:subtotal)
+    # @cart_items_total_price = @cart_items.item.all.sum(:subtotal)
   end
 
   def create

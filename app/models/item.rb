@@ -10,7 +10,7 @@ class Item < ApplicationRecord
  attachment :image
  
   def add_tax_price_before_tax
-   (self.price_before_tax * 1.1).round
+   (self.price_before_tax * 1.1).floor
   end
 
  validates :name,presence:true

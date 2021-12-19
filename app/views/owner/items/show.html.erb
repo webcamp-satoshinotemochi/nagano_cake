@@ -2,10 +2,13 @@
  <div class="row">
   <div class="col m-3">
     <h1>商品詳細</h1><br>
-    <div>
-    	<%= attachment_image_tag @item, :image, :fill, 200, 200 %>
+    <div class = "col-9 mt-5" >
+    	<div class="row">
+        <div class="col -5 text-center" >
+    	<%= attachment_image_tag @item, :image, :fill, 200, 200  %>
     </div>
-    <table class='table table-borderless' >
+    <div class = "col -5" >
+    <table class='table' >
      <tr>
        <th>商品名</th>
 	     <td><%= @item.name %></td>
@@ -34,7 +37,10 @@
 			 <% end %>
 	   </tr>
 	  </table>
-	  <div class="text-center">
+	  </div>
+	  </div>
+	  </div>
+	  <div class="d-flex justify-content-center mb-5">
       <%= link_to "編集する", edit_owner_item_path(@item), class:'btn btn-success' %>
     </div>
   </div>

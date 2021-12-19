@@ -17,11 +17,9 @@ class Item < ApplicationRecord
  validates :body,presence:true
  validates :price_before_tax,presence:true
 
-
  # ----消費税をもとめるメソッド----
  def with_tax_price
   (price_before_tax * 1.1).floor
  end
  # ------------ここまで------------
-
 end

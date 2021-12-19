@@ -1,1 +1,67 @@
-<h1>会員情報編集画面</h1>
+<div class="container">
+  <div class="row">
+    <div class="offset-md-2 col-md-10">
+      <h2><%= @customer.full_name %>さんの会員情報編集</h2>
+      <%= form_with url: edit_owner_customer_path, local:true do |f| %>
+      <table class="table table-light">
+        <tbody>
+          <tr>
+            <th>会員ID</th>
+            <td class="form-group"><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <th style="width:20%;">氏名</th>
+            <td class="form-group" style="width:20%;"><%= f.text_field :family_name, class:"form-control family_name", placeholder:@customer.family_name %></td>
+            <td class="form-group" style="width:20%;"><%= f.text_field :first_name, class:"form-control first_name", placeholder:@customer.first_name %></td>
+            <td style="width:20%;"></td>
+            <td style="width:20%;"></td>
+          </tr>
+          <tr>
+            <th style="width:20%;">フリガナ</th>
+            <td class="form-group"><%= f.text_field :family_name_kana, class:"form-control family_name_kana", placeholder:@customer.family_name_kana %></td>
+            <td class="form-group"><%= f.text_field :first_name_kana, class:"form-control first_name_kana", placeholder:@customer.first_name_kana %></td>
+            <td style="width:20%;"></td>
+            <td style="width:20%;"></td>
+          </tr>
+          <tr>
+            <th style="width:20%;">郵便番号</th>
+            <td class="form-group"><%= f.text_field :post_address, class:"form-control post_address", placeholder:@customer.post_address %></td>
+            <td style="width:20%;"></td>
+            <td style="width:20%;"></td>
+            <td style="width:20%;"></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td class="form-group" colspan="3"><%= f.text_field :address, class:"form-control address", placeholder:@customer.address, size: 60 %></td>
+          </tr>
+          <tr>
+            <th style="width:20%;">電話番号</th>
+            <td class="form-group"><%= f.text_field :phone_number, class:"form-control phone_number", placeholder:@customer.phone_number %></td>
+            <td style="width:20%;"></td>
+            <td style="width:20%;"></td>
+            <td style="width:20%;"></td>
+          </tr>
+          <tr>
+            <th style="width:20%;">メールアドレス</th>
+            <td class="form-group" colspan="2"><%= f.text_field :email, class:"form-control email", placeholder:@customer.email %></td>
+            <td style="width:20%;"></td>
+            <td style="width:20%;"></td>
+          </tr>
+          <tr>
+            <th >会員ステータス</th>
+            <td class="form-group">
+              <%= f.radio_button :is_deleted, 0 %>
+              <%= f.label "有効" %>
+              <%= f.radio_button :is_deleted, 1 %>
+              <%= f.label "退会" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group">
+        <%= f.submit class: 'btn btn-secondary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

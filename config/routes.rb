@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :orders,except:[:edit]
     resource :customers,only:[:edit,:update] do
       get 'mypage' => 'customers#mypage'
+      get 'mypage/edit' => 'customers#edit'
+      patch 'mypage/update' => 'customers#update'
       get 'unsubscribe' => 'customers#unsubscribe'
       patch 'withdraw' => 'customers#withdraw'
       resources :deliveries,except:[:show,:new]

@@ -9,31 +9,33 @@
      </tr>
      <tr>
 	     <th>注文日</th>
-	     <td><%= @order. %></td>
+	     <td><%= @order.created_at %></td>
 	   </tr>
 	   <tr>
 	     <th>配送先</th>
-	     <td><%= @item.genre.name %></td>
+	       <td>〒<%= @order.post_address %><%= @order.address %></td><br>
+         <td><%= @order.name %></td>
 	   </tr>
 		 <tr>
-	     <th>支払い方法</th>
-	     <td>
-	       <%= @item.add_tax_price_before_tax.to_s(:delimited) %>
-	       (<%= @item.price_before_tax.to_s(:delimited) %>)円
-	     </td>
+	     <th>支払方法</th>
+	     <td><%= @order.pay_method_i18n %></td>
 	   </tr>
 	   <tr>
 	     <th>注文ステータス</th>
-	 		 <td><div class = "text-success">販売中</div></td>
-			 <td><div class = "text-secondary">販売中止中</div></td>
+	     <%= form_with(model: @order, url: awner_order_path, local: true, class: "form-row") do |f| %>
+       <%= f.select :order_status, Order.order_statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6"  %>
+       <%= f.submit "更新" %>
+       <% end %>
 	  </tr>
 	  </table>
 	  <table class="table">
-  <thead class="thead-light">
+  <thead class="thead-left">
     <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>制作ステータス</th>
     </tr>
   </thead>
   <tbody>

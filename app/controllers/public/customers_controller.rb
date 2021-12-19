@@ -5,6 +5,7 @@ def mypage
 end
 
 def edit
+  @customer = current_customer
 end
 
 
@@ -15,6 +16,11 @@ def withdraw
 end
 
 def update
+  if current_customer.update(customer_params)
+    redirect_to mypage_customers_path
+  else
+    redirect_to request.referer
+  end
 end
 
 private

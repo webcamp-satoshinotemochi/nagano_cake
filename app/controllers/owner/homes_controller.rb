@@ -3,6 +3,7 @@ before_action :authenticate_owner!
 #管理者でないとログイン画面に遷移
 
 def top
+  @order_items = OrderItem.all
 end
 
 end

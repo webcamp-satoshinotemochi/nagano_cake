@@ -1,1 +1,55 @@
-<h1>注文履歴詳細画面の表示</h1>
+<div class="container">
+ <div class="row">
+  <div class="col m-3">
+    <h1>注文履歴詳細</h1><br>
+    <table class='table table-borderless' >
+     <tr>
+       <th>購入者</th>
+	     <td><%= @order.name %></td>
+     </tr>
+     <tr>
+	     <th>注文日</th>
+	     <td><%= @order. %></td>
+	   </tr>
+	   <tr>
+	     <th>配送先</th>
+	     <td><%= @item.genre.name %></td>
+	   </tr>
+		 <tr>
+	     <th>支払い方法</th>
+	     <td>
+	       <%= @item.add_tax_price_before_tax.to_s(:delimited) %>
+	       (<%= @item.price_before_tax.to_s(:delimited) %>)円
+	     </td>
+	   </tr>
+	   <tr>
+	     <th>注文ステータス</th>
+	 		 <td><div class = "text-success">販売中</div></td>
+			 <td><div class = "text-secondary">販売中止中</div></td>
+	  </tr>
+	  </table>
+	  <table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+    </tr>
+  </tbody>
+</table>
+
+	</div>
+ </div>
+</div>

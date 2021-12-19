@@ -5,6 +5,7 @@ def mypage
 end
 
 def edit
+  @customer = current_customer
 end
 
 

@@ -15,4 +15,11 @@ end
 def update
 end
 
+private
+
+  def delivery_params
+    params.require(:delivery).permit(:customer_id, :post_address, :address, :name)
+  end
+
+
 end

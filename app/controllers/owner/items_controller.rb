@@ -14,7 +14,7 @@ class Owner::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to owner_items_path(@item.id)
+      redirect_to owner_item_path(@item)
     else
       render :new
     end
@@ -31,8 +31,8 @@ class Owner::ItemsController < ApplicationController
 
   def  update
     @item = Item.find(params[:id])
-    if @item.update
-    redirect_to owner_items_path(@item)
+    if @item.update(item_params)
+    redirect_to owner_item_path(@item)
     else
     render edit
     end

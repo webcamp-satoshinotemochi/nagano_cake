@@ -8,16 +8,18 @@ class Item < ApplicationRecord
  has_many :orders,through: :order_items
 
  attachment :image
+ 
+  def add_tax_price_before_tax
+   (self.price_before_tax * 1.1).round
+  end
 
  validates :name,presence:true
  validates :body,presence:true
  validates :price_before_tax,presence:true
-
 
  # ----消費税をもとめるメソッド----
  def with_tax_price
   (price_before_tax * 1.1).floor
  end
  # ------------ここまで------------
-
 end

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :orders,except:[:edit]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/thank' => 'orders#thank'
+    resources :orders,except:[:edit]
     resource :customers,only:[:edit,:update] do
       get 'mypage' => 'customers#mypage'
       get 'unsubscribe' => 'customers#unsubscribe'

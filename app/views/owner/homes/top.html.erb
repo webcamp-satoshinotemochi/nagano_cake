@@ -12,12 +12,15 @@
         </tr>
       </thead>
       <tbody>
-        <% @order_items.each do |order| %>
+        <% @orders.each do |order| %>
         <tr>
-          <th scope="low"><%= order.created_at %></th>
-          <th scope="low"><%= order.name %></th>
-          <th scope="low"><%= order.quantity %></th>
-    	  <th scope="low"><%= order.status %></th>
+          <th><%= link_to owner_order_path(order) do %>
+          <%= order.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+          <% end %>
+          </th>
+          <th><%= order.customer.full_name %></th>
+          <th><%= order.order_items.sum(:order_quantity) %></th>
+    	    <th><%= order.order_status_i18n %></th>
     	  <th></th>
     	 </tr>
     	 <% end %>
@@ -26,3 +29,4 @@
   </div>
  </div>
 </div>
+<%= paginate @orders %>

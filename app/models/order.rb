@@ -13,5 +13,10 @@ class Order < ApplicationRecord
   def sum_order_price
     total_price+postage
   end
+  
+   def with_tax_price
+  (price_before_tax * 1.1).floor
+   end
+
 
 end

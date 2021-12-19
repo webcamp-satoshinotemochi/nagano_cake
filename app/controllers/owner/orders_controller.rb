@@ -5,9 +5,7 @@ class Owner::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_items = @order.order_items
-    @order.postage = 800
     @total_price_except_postage = @order_items.inject(0) { |sum, item| sum + item.subtotal }
-    @amount_claimed = @total_price_except_postage + @order.postage
   end
 
   def update

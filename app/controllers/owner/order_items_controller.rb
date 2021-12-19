@@ -17,7 +17,7 @@ class Owner::OrderItemsController < ApplicationController
 
   private
   def order_item_params
-    params.require(:order_item).permit(:production_status)
+    params.require(:order_item).permit(:product_status)
   end
 
 end

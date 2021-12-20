@@ -16,10 +16,16 @@ class Public::OrdersController < ApplicationController
     @total_price_except_postage = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @amount_claimed = @total_price_except_postage + @order.postage
 
-    if params[:order]
+    if params[:order][:select_adress] == "0"
       @order.post_address = current_customer.post_address
       @order.address = current_customer.address
       @order.name = current_customer.full_name
+
+    elsif params[:order][:select_adress] == "1"
+      @delivery = Delivery.find(params[:order][:delivery_id])
+      @order.post_address = @delivery.post_address
+      @order.address = @delivery.address
+      @order.name = @delivery.name
     end
   end
 

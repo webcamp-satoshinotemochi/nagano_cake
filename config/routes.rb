@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   namespace :owner do
     root to: 'homes#top'
+    get 'search' => 'search#search'
     resources :items,except:[:destroy]
     resources :genres,except:[:show,:destroy,:new]
     resources :customers,except:[:new,:create,:destroy]
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
+    get 'search' => 'search#search'
     get 'about' => 'homes#about'
     resources :items,only:[:index,:show]
     resources :cart_items,except:[:show,:new,:edit]

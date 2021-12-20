@@ -24,4 +24,14 @@ class Customer < ApplicationRecord
     family_name+' '+first_name
   end
 
+  def self.search(search,word)
+    if search == "forward"
+      @customers = Customer.where("family_name LIKE?","#{word}%")
+    elsif search =="partial"
+      @customers = Customer.where("family_name LIKE?","%#{word}%")
+    else
+      @customers = Customer.all
+    end
+  end
+
 end

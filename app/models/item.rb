@@ -8,7 +8,7 @@ class Item < ApplicationRecord
  has_many :orders,through: :order_items
 
  attachment :image
- 
+
   def add_tax_price_before_tax
    (self.price_before_tax * 1.1).floor
   end
@@ -22,4 +22,14 @@ class Item < ApplicationRecord
   (price_before_tax * 1.1).floor
  end
  # ------------ここまで------------
+ def self.search(search,word)
+    if search == "forward"
+      @items = Item.where("name LIKE?","#{word}%")
+    elsif search =="partial"
+      @items = Item.where("name LIKE?","%#{word}%")
+    else
+      @items = Item.all
+    end
+ end
+
 end

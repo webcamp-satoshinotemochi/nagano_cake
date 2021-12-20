@@ -35,7 +35,7 @@
               <td><%= delivery.name %></td>
               <td>
                 <%= link_to "編集する", edit_customers_delivery_path(delivery), class:"btn btn-warning" %>
-                <%= link_to "削除する", customers_delivery_paht(delivery), method: :delete, "date-confirm" => "本当に削除しますか⁉😭", class:"btn btn-danger" %>
+                <%= link_to "削除する", customers_delivery_path(delivery), method: :delete, "data-confirm" => "本当に削除しますか?👀", class:"btn btn-danger" %>
               </td>
             </tr>
           <% end %>

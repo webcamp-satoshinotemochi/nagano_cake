@@ -13,9 +13,9 @@
     <% @cart_items.each do |c| %>
       <tr class="text-right">
         <th class="text-center"><%= c.item.name %></th>
-        <td><%= c.item.with_tax_price.to_s(:delimited) %></td>
+        <td><%= c.item.with_tax_price.to_s(:delimited) %>円</td>
         <td><%= c.quantity %></td>
-        <td><%= c.subtotal.to_s(:delimited) %></td>
+        <td><%= c.subtotal.to_s(:delimited) %>円</td>
       </tr>
     <% end %>
   </tbody>
@@ -27,17 +27,17 @@
   <tbody>
     <tr>
       <th class="table-dark">送料</th>
-      <td><%= @order.postage %></td>
+      <td><%= @order.postage %>円</td>
     </tr>
     <tr>
       <th class="table-dark">商品合計</th>
       <td>
-      <%= @total_price_except_postage.to_s(:delimited) %>
+      <%= @total_price_except_postage.to_s(:delimited) %>円
       </td>
     </tr>
     <tr>
       <th class="table-dark">請求金額</th>
-      <th><%= @amount_claimed.to_s(:delimited) %></th>
+      <th><%= @amount_claimed.to_s(:delimited) %>円</th>
     </tr>
   </tbody>
 </table>

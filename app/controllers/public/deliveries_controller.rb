@@ -26,6 +26,12 @@ def edit
 end
 
 def update
+  @delivery = Delivery.find(params[:id])
+  if @delivery.update(delivery_params)
+    redirect_to  customers_deliveries_path
+  else
+    redirect_to request.referer
+  end
 end
 
 private

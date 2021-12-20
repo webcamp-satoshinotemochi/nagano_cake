@@ -17,12 +17,27 @@
 
 header
 {
-  background-color: #551937;
+  background-color: #c00000;
   font-family:"Lucida Sans Unicode"	,serif;
   font-size: 25px;
 }
+
+main {
+  background-image: image-url('image_2.jpg');
+  background-size: cover;
+  background-position: bottom center ;
+  height: 800px;
+}
+
+.text-box {
+  position: absolute;
+  bottom: 13%;
+  right: 30%;
+  margin: 0;
+}
+
 footer{
-  background-color: #551937;
+  background-color: #fff0f0;
   font-family:"Lucida Sans Unicode"	,serif;
   font-size: 25px;
 }

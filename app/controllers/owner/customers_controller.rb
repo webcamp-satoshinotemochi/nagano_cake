@@ -18,7 +18,7 @@ end
 def update
   @customer = Customer.find(params[:id])
   if @customer.update(customer_params)
-    redirect_to owner_customer_path(@customer.id)
+    redirect_to owner_customer_path(@customer)
   else
     render :edit
   end

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     delete 'cart_items' => 'cart_items#destroy_all'
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/thank' => 'orders#thank'
-    resources :orders,except:[:edit]
+    resources :orders,except:[:edit] 
     resource :customers,only:[:edit,:update] do
       get 'mypage' => 'customers#mypage'
       get 'mypage/edit' => 'customers#edit'

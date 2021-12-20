@@ -22,14 +22,14 @@
             <%= attachment_image_tag cart_item.item, :image, size: '50x50', fallback: "no-img.png" %>
             <%= cart_item.item.name %>
           </td>
-          <td><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
+          <td><%= cart_item.item.with_tax_price.to_s(:delimited) + "円" %></td>
           <td>
             <%= form_with model: cart_item ,local: true do |f| %>
               <%= f.select :quantity, *[1..10] %>
               <%= f.submit "変更", class:"btn btn-outline-info" %>
             <% end %>
           </td>
-          <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+          <td><%= cart_item.subtotal.to_s(:delimited) + "円" %></td>
           <td><%= link_to "消去する", cart_item_path(cart_item), method: :delete, "data-confirm" => "本当に消しますか?🥺", class:"btn btn-danger" %></td>
         </tr>
       <% end %>
@@ -44,9 +44,12 @@
     <tabel class="tabel tabele-bordered">
       <tr>
         <td>合計金額</td>
-        <td><%= @total.round.to_s(:delimited) %></td>
+        <td><%= @total.round.to_s(:delimited) + "円" %></td>
       </tr>
     </tabel>
   </div>
 </div>
+<% if @cart.count != 0 %>
 <p class="text-center"><%= link_to "注文に進む", new_order_path, class:"btn btn-success" %></p>
+<% end %>
+

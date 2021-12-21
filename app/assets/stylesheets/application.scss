@@ -41,3 +41,24 @@ footer{
   font-family:"Lucida Sans Unicode"	,serif;
   font-size: 25px;
 }
+
+@media screen and (max-width:1024px) {
+  .text-box {
+    position: absolute;
+    right: 20%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .text-box {
+    position: absolute;
+    right: 10%;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .text-box {
+    position: absolute;
+    right: 0%;
+  }
+}

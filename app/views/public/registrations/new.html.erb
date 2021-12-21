@@ -2,7 +2,7 @@
 
 <%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-  <table class="table table-borderless">
+  <table class="table table-borderless table-danger">
     <tbody>
       <tr>
         <div class="field">

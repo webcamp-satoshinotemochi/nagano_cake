@@ -1,6 +1,6 @@
 <h1>注文情報確認</h1>
 <div class="col-7 d-inline-block">
-<table class="table table-bordered">
+<table class="table  table-borderless table-danger">
   <thead class="thead-dark">
     <tr>
       <th>商品名</th>
@@ -23,7 +23,7 @@
 </div>
 
 <div class="col-3 d-inline-block">
-<table class="table table-bordered text-right">
+<table class="table  table-borderless table-danger text-right">
   <tbody>
     <tr>
       <th class="table-dark">送料</th>
@@ -43,7 +43,7 @@
 </table>
 </div>
 
-<table class="table table-borderless">
+<table class="table table-borderless table-danger">
   <tr>
     <th>支払方法</th>
     <td><%= @order.pay_method_i18n %></td>

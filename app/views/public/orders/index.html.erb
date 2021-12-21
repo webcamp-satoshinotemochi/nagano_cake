@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col m-3">
-    <h3>注文履歴一覧</h3>
+    <h3 class="text-white">注文履歴一覧</h3>
 		<table class="table table-borderless table-dark mt-5" style="opacity: 0.8;">
 		  <thead class="thead-dark">
     <tr>
@@ -27,7 +27,7 @@
 			</td>
       <td><%= order.amount_claimed.to_s(:delimited) %>円</td>
       <td><%= order.order_status_i18n %></td>
-      <td><%= link_to "表示する", order_path(order), class: 'btn btn-outlineprimary btn-sm' %></td>
+      <td><%= link_to "表示する", order_path(order), class: 'btn btn-outlineprimary btn-sm text-white' %></td>
       </tr>
     <% end %>
   </tbody>

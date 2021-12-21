@@ -17,12 +17,21 @@
 
 header
 {
-  background-color: #dc143c;
+  background-color: #c00000;
   font-family:"Lucida Sans Unicode"	,serif;
   font-size: 25px;
 }
+
+main {
+  background-image: image-url('background.png');
+  background-size: cover;
+  background-position: center ;
+  height: 800px;
+}
+
+
 footer{
-  background-color: #dc143c;
+  background-color: #fff0f0;
   font-family:"Lucida Sans Unicode"	,serif;
   font-size: 25px;
 }

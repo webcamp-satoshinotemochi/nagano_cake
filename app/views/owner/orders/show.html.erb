@@ -3,7 +3,7 @@
     <h1>注文履歴詳細</h1><br>
     	<div class="row">
     	  <div class="col-md-8">
-    	    <table class='table table-borderless'>
+    	    <table class='table table-borderless table-danger'>
     	      <tr>
     	        <th>購入者</th>
     	         <td>
@@ -32,7 +32,7 @@
 	            <td>
 	              <%= form_with(model: @order, url: owner_order_path(@order),method: :patch, local: true, class: "form-row") do |f| %>
                 <%= f.select :order_status, Order.order_statuses_i18n.invert, {}, class:"form-control form-control-sm col-6"  %>
-                <%= f.submit "更新",class: "btn register_button motion" %>
+                <%= f.submit "更新", class: "btn btn-outline-warning ml-2 mb-2" %>
                 <% end %>
               </td>
 	          </tr>
@@ -41,7 +41,7 @@
 	  </div>
     <div class="row">
       <div class="col-md-8">
-        <table class="table table-hover table-inverse">
+        <table class="table table-hover table-danger">
           <thead>
             <tr>
               <th>商品名</th>
@@ -61,7 +61,7 @@
               <td>
                   <%= form_with url: owner_order_item_path(order_item), model:order_item, method: :patch, local:true do |s| %>
                   <%= s.select :product_status, OrderItem.product_statuses_i18n.invert, {prompt: 0}, {class: "mr-5",required: true} %>
-                  <%= s.submit "更新", class: "btn register_button motion" %>
+                  <%= s.submit "更新", class:"btn btn-outline-warning" %>
                   <% end %>
               </td>
                   <% end %>

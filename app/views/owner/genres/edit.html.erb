@@ -6,7 +6,7 @@
         <%= form_with model: @genre, url: owner_genre_path(@genre), local:true do |f| %>
           <p>ジャンル名
           <%= f.text_field :name %>
-          <%= f.submit "変更を保存", class:"btn btn-outline-primary" %>
+          <%= f.submit "変更を保存", class:"btn btn-outline-success" %>
           </p>
         <% end %>
       </div>

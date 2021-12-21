@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col m-10">
       <h2><%= @customer.full_name %>さんの会員詳細</h2>
-      <table class="table table-light">
+      <table class="table table-borderless table-danger">
         <tbody>
           <tr>
             <th>会員ID</th>
@@ -44,10 +44,10 @@
       </table>
       <div class="text-center mb-3">
       <div class="d-inline-block mr-5">
-        <%= link_to '編集する', edit_owner_customer_path, class:"btn btn-success" %>
+        <%= link_to '編集する', edit_owner_customer_path, class:"btn btn-outline-dark" %>
       </div>
       <div class="d-inline-block ml-5">
-        <%= link_to '会員一覧に戻る',owner_customers_path, class:"btn btn-primary" %>
+        <%= link_to '会員一覧に戻る',owner_customers_path, class:"btn btn-outline-info" %>
       </div>
       </div>
     </div>

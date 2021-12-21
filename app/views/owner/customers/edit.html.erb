@@ -3,7 +3,7 @@
     <div class="offset-md-2 col-md-10">
       <h2><%= @customer.full_name %>さんの会員情報編集</h2>
       <%= form_with model: @customer, url: owner_customer_path(@customer), local:true do |f| %>
-      <table class="table table-light">
+      <table class="table table-borderless table-danger">
         <tbody>
           <tr>
             <th>会員ID</th>
@@ -59,7 +59,7 @@
         </tbody>
       </table>
       <div class="form-group">
-        <%= f.submit "変更を保存", class: 'btn btn-secondary' %>
+        <%= f.submit "変更を保存", class:"btn btn-outline-success" %>
       </div>
       <% end %>
     </div>

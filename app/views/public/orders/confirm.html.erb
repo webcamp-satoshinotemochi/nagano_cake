@@ -1,4 +1,4 @@
-<ol class="nav">
+<ol class="nav mt-3">
 	<li class="nav-form">入力</li>
 	<li class="arrow"><i class="fas fa-arrow-right"></i></li>
 	<li class="nav-form current">確認</li>
@@ -6,9 +6,9 @@
 	<li class="nav-form">完了</li>
 </ol>
 
-<h1>注文情報確認</h1>
+<h1 class="text-white">注文情報確認</h1>
 <div class="col-7 d-inline-block">
-<table class="table  table-borderless table-danger">
+<table class="table table-borderless table-dark" style="opacity: 0.8;">
   <thead class="thead-dark">
     <tr>
       <th>商品名</th>
@@ -31,7 +31,7 @@
 </div>
 
 <div class="col-3 d-inline-block">
-<table class="table  table-borderless table-danger text-right">
+<table class="table table-borderless table-dark text-right" style="opacity: 0.8;">
   <tbody>
     <tr>
       <th class="table-dark">送料</th>
@@ -51,7 +51,7 @@
 </table>
 </div>
 
-<table class="table table-borderless table-danger">
+<table class="table table-borderless table-dark" style="opacity: 0.8;">
   <tr>
     <th>支払方法</th>
     <td><%= @order.pay_method_i18n %></td>

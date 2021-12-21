@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col m-3">
-            <h2>配送先編集</h2>
+            <h2 class="text-white">配送先編集</h2>
                <div class="mt-5">
                 <%= form_with model: @delivery, url: customers_delivery_path(@delivery), method: :patch, local:true do |f| %>
-                  <table>
+                  <table class="table table-borderless table-dark" style="opacity: 0.8;">
                     <tr>
                       <td>郵便番号（ハイフンなし）</td>
                       <td><%= f.text_field :post_address %></td>

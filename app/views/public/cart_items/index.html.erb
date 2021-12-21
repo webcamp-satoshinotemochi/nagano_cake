@@ -1,11 +1,11 @@
 <div class="container">
   <div class="col m-3">
-    <h3>ショッピングカート</h3>
+    <h3 class="text-white">ショッピングカート</h3>
   </div>
   <div class="col-auto text-right">
     <%= link_to "カートを空にする", cart_items_path, method: :delete, "data-confirm" => "本当に消しますか?", class:"btn btn-outline-danger ml-4 mb-3" %>
   </div>
-  <table class="table table-borderless table-danger">
+  <table class="table table-borderless table-dark" style="opacity: 0.8;">
     <thead>
       <tr>
         <th scope="col">商品名</th>
@@ -41,12 +41,12 @@
   <%= link_to "買い物を続ける", root_path, class:"btn btn-outline-info ml-4 mb-3" %>
   </div>
   <div class="col-4 offset-4">
-    <tabel class="tabel tabele-bordered">
+    <table class="table table-borderless table-dark" style="opacity: 0.8;">
       <tr>
         <td>合計金額</td>
         <td><%= @total.round.to_s(:delimited) + "円" %></td>
       </tr>
-    </tabel>
+    </table>
   </div>
 </div>
 <% if @cart.count != 0 %>

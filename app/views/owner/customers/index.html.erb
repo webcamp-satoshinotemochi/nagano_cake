@@ -1,26 +1,26 @@
 <div class="container">
  <div class="row">
   <div class="col m-3">
-    <h2>会員一覧</h2><br>
-    <table class= "table">
-      <thead class="thead-light">
+    <h2 class="text-white">会員一覧</h2><br>
+    <table class="table table-borderless table-dark" style="opacity: 0.8;">
+      <thead>
         <tr>
-          <th scope="col">会員ID</th>
+          <th scope="col" class="text-center">会員ID</th>
           <th scope="col">氏名</th>
           <th scope="col">メールアドレス</th>
-          <th scope="col">ステータス</th>
+          <th scope="col" class="text-center">ステータス</th>
         </tr>
       </thead>
       <tbody>
         <% @customers.each do |customer| %>
-        <tr class="text-center">
-          <th scope="low"><%= customer.id %></th>
-          <th scope="low"><%= link_to customer.full_name, owner_customer_path(customer), :style=>"color:#212529;;" %></th>
+        <tr>
+          <th scope="low" class="text-center"><%= customer.id %></th>
+          <th scope="low"><%= link_to customer.full_name, owner_customer_path(customer), class:"text-white" %></th>
           <th scope="low"><%= customer.email %></th>
     	     <% if customer.is_deleted? == true %>
-    	       <td class="text-secondary">退会</td>
+    	       <td class="text-secondary text-center">退会</td>
 				   <% else %>
-				     <td class="text-success">有効</td>
+				     <td class="text-success text-center">有効</td>
 				   <% end %>
         </tr>
         <% end %>

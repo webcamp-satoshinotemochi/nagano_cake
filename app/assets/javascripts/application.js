@@ -18,20 +18,22 @@
 
 //= require rails-ujs
 //= require activestorage
-// require turbolinks
+//= require turbolinks
 //= require_tree .
-
-$(document).ready(function() {
-  $("#theTarget").skippr({
-    transition : 'fade',
-    speed : 3000,
-    easing : 'easeOutQuart',
-    navType : 'bubble',
-    childrenElementType : 'div',
-    arrows : false,
-    autoPlay : true,
-    autoPlayDuration : 5000,
-    keyboardOnAlways : false,
-    hidePrevious : false,
+document.addEventListener("turbolinks:load"
+, function () {
+  $(document).ready(function() {
+    $("#theTarget").skippr({
+      transition : 'fade',
+      speed : 3000,
+      easing : 'easeOutQuart',
+      navType : 'bubble',
+      childrenElementType : 'div',
+      arrows : false,
+      autoPlay : true,
+      autoPlayDuration : 5000,
+      keyboardOnAlways : false,
+      hidePrevious : false,
+    });
+   });
   });
-});

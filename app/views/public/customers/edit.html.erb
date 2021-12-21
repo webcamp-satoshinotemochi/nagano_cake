@@ -1,9 +1,10 @@
 <div class="container">
   <div class="mb-3 row">
     <div class="col">
-      <h2>会員情報編集</h2>
+      <h2 class="text-white">会員情報編集</h2>
       <%= form_with model: @customer, url: mypage_update_customers_path, local: true do |f| %>
-        <div class="row g-3 align-items-center mt-4">
+      <div class="text-white" style="background-color: #343a40; opacity: 0.8; height: 350px;">
+        <div class="row g-3 align-items-center mt-4 mb-2 ml-3">
           <div class="col-auto">
             <label for="inputPassword6" class="col-form-label">氏名</label>
           </div>
@@ -12,7 +13,7 @@
           </div>
         </div>
 
-         <div class="row g-3 align-items-center">
+         <div class="row g-3 align-items-center mb-2 ml-3">
           <div class="col-auto">
             <label for="inputPassword6" class="col-form-label">フリガナ</label>
           </div>
@@ -21,7 +22,7 @@
           </div>
         </div>
 
-        <div class="row g-3 align-items-center">
+        <div class="row g-3 align-items-center mb-2 ml-3">
           <div class="col-auto">
             <label for="inputPassword6" class="col-form-label">郵便番号</label>
           </div>
@@ -30,16 +31,16 @@
           </div>
         </div>
 
-         <div class="row g-3 align-items-center">
+         <div class="row g-3 align-items-center mb-2 ml-3">
           <div class="col-auto">
             <label for="inputPassword6" class="col-form-label">住所</label>
           </div>
           <div class="col-auto">
-            <%= f.text_field :address %>
+            <%= f.text_field :address, size:"60" %>
           </div>
         </div>
 
-        <div class="row g-3 align-items-center">
+        <div class="row g-3 align-items-center mb-2 ml-3">
           <div class="col-auto">
             <label for="inputPassword6" class="col-form-label">電話番号</label>
           </div>
@@ -48,19 +49,20 @@
           </div>
         </div>
 
-        <div class="row g-3 align-items-center">
+        <div class="row g-3 align-items-center mb-2 ml-3">
           <div class="col-auto">
             <label for="inputPassword6" class="col-form-label">メールアドレス</label>
           </div>
           <div class="col-auto">
-            <%= f.text_field :email %>
+            <%= f.text_field :email, size:"30" %>
           </div>
         </div>
         <tr>
-         <div class="mt-3">
-            <%= f.submit "編集内容を保存", class:"btn btn-outline-dark" %>
-            <%= link_to "退会する", unsubscribe_customers_path, class:"btn btn-outline-danger" %>
+         <div class="mt-4 ml-5">
+            <%= f.submit "編集内容を保存", class:"btn btn-outline-light btn-sm" %>
+            <%= link_to "退会する", unsubscribe_customers_path, class:"btn btn-outline-danger btn-sm" %>
          </div>
+      </div>
       <% end %>
     </div>
   </div>

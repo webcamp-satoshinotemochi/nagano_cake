@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col m-3">
-      <h2>ジャンル一覧　/　追加</h2>
+      <h2 class="text-white">ジャンル一覧　/　追加</h2>
       <div class="my-5">
         <%= form_with model: @genre, url: owner_genres_path, method: :post, local:true do |f| %>
-          <p>ジャンル名
+          <p class="text-white">ジャンル名
           <%= f.text_field :name, placeholder:"ジャンル名" %>
-          <%= f.submit "新規投稿", class:"btn btn-secondary" %>
+          <%= f.submit "新規投稿", class:"btn btn-outline-success" %>
           </p>
         <% end %>
       </div>
-      <table class="table">
+      <table class="table table-borderless table-dark text-center" style="opacity: 0.8;">
           <thead>
             <tr>
               <th>ジャンル</th>

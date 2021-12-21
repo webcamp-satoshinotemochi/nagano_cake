@@ -1,4 +1,4 @@
-<ol class="nav">
+<ol class="nav mt-3">
 	<li class="nav-form current">入力</li>
 	<li class="arrow">→</li>
 	<li class="nav-form">確認</li>
@@ -6,8 +6,9 @@
 	<li class="nav-form">完了</li>
 </ol>
 
-<h1>注文情報入力</h1>
-<div class="field">
+<h1 class="text-white">注文情報入力</h1>
+<div class="field mt-3 text-white" style="background-color: #343a40; opacity: 0.8;">
+  <div class="ml-5 pd-5">
   <h3>支払方法</h3>
   <%= form_with model: @order, url:orders_confirm_path, local: true do |f| %>
     <div class="ml-5">
@@ -45,7 +46,8 @@
       </div>
     </div>
     <div class="text-center">
-      <%= f.submit "確認画面へ進む",class:"btn move_button motion my-3" %>
+      <%= f.submit "確認画面へ進む",class:"btn btn-outline-info my-3" %>
     </div>
   <% end %>
+</div>
 </div>

@@ -3,7 +3,7 @@
     <h1>注文履歴詳細</h1><br>
     	<div class="row">
     	  <div class="col-md-8">
-    	    <table class='table table-borderless'>
+    	    <table class="table table-borderless table-dark" style="opacity: 0.8;">
     	      <tr>
     	        <th>購入者</th>
     	         <td>
@@ -41,7 +41,7 @@
 	  </div>
     <div class="row">
       <div class="col-md-8">
-        <table class="table table-hover table-inverse">
+        <table class="table table-hover table-inverse table-borderless table-dark" style="opacity: 0.8;">
           <thead>
             <tr>
               <th>商品名</th>
@@ -70,7 +70,7 @@
         </table>
       </div>
       <div class="offset-md-1">
-        <table class="table table-borderless">
+        <table class="table table-borderless table-dark" style="opacity: 0.8;">
           <tr>
             <th class="table-color">商品合計</th>
             <td><%= @total_price_except_postage.to_s(:delimited) %>円</td>

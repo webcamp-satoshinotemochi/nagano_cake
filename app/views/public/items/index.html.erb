@@ -4,7 +4,7 @@
             <%= render "genre", genre: @genres %>
         </div>
         <div class="col-10">
-            <h2>商品一覧<span class="h4">（全 <%= @total_items.count %>件）</span></h2>
+            <h2 class="text-white">商品一覧<span class="h4">（全 <%= @total_items.count %>件）</span></h2>
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-eq-height">
                     <% @items.each do |item| %>

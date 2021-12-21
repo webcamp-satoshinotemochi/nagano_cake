@@ -1,7 +1,7 @@
-<h2>ログイン</h2>
+<h2 class="text-white">ログイン</h2>
 
 <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
-  <table class="table table-borderless">
+  <table class="table table-borderless table-dark" style="opacity: 0.8;">
     <tbody>
       <tr>
         <th>メールアドレス</th>
@@ -23,7 +23,7 @@
         <td></td>
         <td>
           <div class="actions">
-            <%= f.submit "ログイン", class:"btn btn-sm btn-info" %>
+            <%= f.submit "ログイン", class:"btn btn-sm btn-outline-info" %>
             <label><% if devise_mapping.rememberable? %>
               <div class="field">
                 <%= f.check_box :remember_me %>
@@ -37,5 +37,5 @@
     </tbody>
   </table>
 <% end %>
-<h5>会員登録がお済ではない方</h5>
-<p><%= render "public/shared/links" %>から新規登録を行ってください。</p>
+<h5 class="text-center">会員登録がお済ではない方は</h5>
+<p class="text-center"><%= render "public/shared/links" %>から新規登録を行ってください</p>

@@ -18,7 +18,7 @@
           <th scope="low"><%= link_to customer.full_name, owner_customer_path(customer), class:"text-white" %></th>
           <th scope="low"><%= customer.email %></th>
     	     <% if customer.is_deleted? == true %>
-    	       <td class="text-secondary text-center">退会</td>
+    	       <td class="text-danger text-center">退会</td>
 				   <% else %>
 				     <td class="text-success text-center">有効</td>
 				   <% end %>

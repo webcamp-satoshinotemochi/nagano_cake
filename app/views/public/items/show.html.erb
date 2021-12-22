@@ -20,7 +20,7 @@
                 <%= f.hidden_field :item_id, value: @item.id %>
                 <%= f.hidden_field :customer_id, value: current_customer.id %>
                 <%= f.select :quantity, options_for_select((1..10).to_a), placeholder: "個数選択" %>
-                <%= f.submit "カートに入れる", class:"btn btn-outline-info" %>
+                <%= f.submit "カートに入れる", class:"btn btn-info" %>
               <% end %>
             <% else %>
               <h4>販売停止中です</h4>

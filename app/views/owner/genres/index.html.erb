@@ -6,7 +6,7 @@
         <%= form_with model: @genre, url: owner_genres_path, method: :post, local:true do |f| %>
           <p class="text-white">ジャンル名
           <%= f.text_field :name, placeholder:"ジャンル名" %>
-          <%= f.submit "新規投稿", class:"btn btn-outline-success" %>
+          <%= f.submit "新規投稿", class:"btn btn-success" %>
           </p>
         <% end %>
       </div>
@@ -20,7 +20,7 @@
           <% @genres.each do |genre| %>
             <tr>
               <td><%= genre.name %></td>
-              <td><%= link_to "編集する", edit_owner_genre_path(genre), class:"btn btn-dark" %></td>
+              <td><%= link_to "編集する", edit_owner_genre_path(genre), class:"btn btn-primary" %></td>
             </tr>
             <% end %>
         </table>

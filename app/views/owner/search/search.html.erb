@@ -1,0 +1,69 @@
+<div class="container px-5 px-sm-0">
+<% if @range == '1' %>
+  <h1 class="text-white">"<%= @word %>"での検索結果</h1>
+  <% if @customers.count == 0 %>
+    <h2 class="text-white">検索結果がありませんでした</h2>
+  <% else %>
+    <table class= "table table-borderless table-dark" style="opacity: 0.8;">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">会員ID</th>
+          <th scope="col">氏名</th>
+          <th scope="col">メールアドレス</th>
+          <th scope="col" class="text-center">ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+        <tr>
+          <th scope="low" class="text-center"><%= customer.id %></th>
+          <th scope="low"><%= link_to customer.full_name, owner_customer_path(customer), class:"text-white" %></th>
+          <th scope="low"><%= customer.email %></th>
+    	     <% if customer.is_deleted? == true %>
+    	       <td class="text-secondary text-center">退会</td>
+				   <% else %>
+				     <td class="text-success text-center">有効</td>
+				   <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% else %>
+  <h1 class="text-white">"<%= @word %>"での検索結果</h1>
+  <% if @items.count == 0 %>
+    <h2 class="text-white">検索結果がありませんでした</h2>
+  <% else %>
+    <table class= "table table-borderless table-dark text-center" style="opacity: 0.8;">
+      <thead>
+        <tr>
+          <th scope="col">商品ID</th>
+          <th scope="col">商品名</th>
+          <th scope="col">税抜価格</th>
+          <th scope="col">ジャンル</th>
+          <th></th>
+          <th scope="col">ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+        <tr>
+          <th scope="low"><%= item.id %></th>
+          <th scope="low"><%= link_to item.name, owner_item_path(item), class:"text-white" %></th>
+          <th scope="low"><%= item.price_before_tax.to_s(:delimited) %></th>
+    	    <th scope="low"><%= item.genre.name %></th>
+    	    <th></th>
+    	    <th scope="low">
+    	     <% if item.is_active? == true %>
+					  <span class="badge" style="background:#8BCE9A">販売中</span>
+				   <% else %>
+					  <span class="badge" style="background:#D52438">販売停止中</span>
+				   <% end %>
+				  </th>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>
+</div>

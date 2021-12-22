@@ -1,0 +1,33 @@
+<div class="container px-5 px-sm-0 mt-5">
+  <div class="row">
+    <div class="col-2">
+      <%= render "genre", genre: @genres %>
+    </div>
+    <div class="col-10">
+      <div class="row">
+        <div class="col-7 text-right">
+          <%= attachment_image_tag @item, :image, size: "350x340", fallback: "no-img.png" %>
+        </div>
+        <div class="col-5 text-center text-white mt-5">
+          <h2><%= @item.name %></h2>
+          <div>
+            <%= @item.body %>
+          </div>
+          <h4><%= (@item.with_tax_price).to_s(:delmited) %><span>円（税込）</span></h4>
+          <% if customer_signed_in? %>
+            <% if @item.is_active == true %>
+              <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
+                <%= f.hidden_field :item_id, value: @item.id %>
+                <%= f.hidden_field :customer_id, value: current_customer.id %>
+                <%= f.select :quantity, options_for_select((1..10).to_a), placeholder: "個数選択" %>
+                <%= f.submit "カートに入れる", class:"btn btn-info" %>
+              <% end %>
+            <% else %>
+              <h4>販売停止中です</h4>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -47,13 +47,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders=current_customer.orders
+    @orders=current_customer.orders.page(params[:page])
   end
 
   def show
     if params[:id] == "confirm"
     redirect_to new_order_path
-    else 
+    else
       @order = Order.find(params[:id])
     end
   end

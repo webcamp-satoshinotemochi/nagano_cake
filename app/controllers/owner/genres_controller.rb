@@ -3,7 +3,7 @@ class Owner::GenresController < ApplicationController
   #管理者でないとログイン画面に遷移
 
   def index
-    @genres = Genre.all
+    @genres = Genre.page(params[:page])
     @genre = Genre.new
   end
 

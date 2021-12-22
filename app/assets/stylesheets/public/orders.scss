@@ -14,7 +14,7 @@
   margin:0px 30px;
 
 }
-.current{
+.nav .current{
   background-image: image-url('masterball.png');
   background-size: cover;
 }
@@ -23,7 +23,6 @@
   display:flex;
   justify-content:center;
   margin-bottom:10px;
-  z-index: 5;
 }
 .arrow{
   text-align:center;

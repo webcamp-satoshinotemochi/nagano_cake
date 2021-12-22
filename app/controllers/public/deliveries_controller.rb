@@ -2,7 +2,7 @@ class Public::DeliveriesController < ApplicationController
 
 def index
   @delivery = Delivery.new
-  @deliveries = current_customer.deliveries
+  @deliveries = current_customer.deliveries.page(params[:page])
 end
 
 def create

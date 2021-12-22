@@ -1,8 +1,8 @@
 <ol class="nav mt-3">
-	<li class="nav-form current">入力</li>
-	<li class="arrow">→</li>
+	<li class="nav-form current" style="background-color: #c00000;"></li>
+	<li class="arrow text-white">→</li>
 	<li class="nav-form">確認</li>
-	<li class="arrow">→</i></li>
+	<li class="arrow text-white">→</i></li>
 	<li class="nav-form">完了</li>
 </ol>
 
@@ -30,7 +30,7 @@
       <%= f.radio_button :select_adress, 1 %>
       <%= f.label :select_adress, "登録済住所から選択" %><br>
         <p class="ml-3">
-          <%= f.collection_select :delivery_id, @deliveries, :id, :address, {prompt: current_customer.address } %>
+          <%= f.collection_select :delivery_id, @deliveries, :id, :address %>
         </p>
     </div>
     <div class="ml-5">

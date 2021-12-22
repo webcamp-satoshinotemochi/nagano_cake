@@ -3,7 +3,7 @@ class Owner::ItemsController < ApplicationController
   #管理者でないとログイン画面に遷移
 
   def index
-    @items = Item.page(params[:page]).per(10)
+    @items = Item.page(params[:page]).per(12)
   end
 
   def new

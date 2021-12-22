@@ -12,16 +12,18 @@
   background-color:#D0C2BA;
   color:black;
   margin:0px 30px;
+
 }
 .current{
-  background-color:white;
-  color:#90736e;
+  background-image: image-url('masterball.png');
+  background-size: cover;
 }
 
 .nav{
   display:flex;
   justify-content:center;
   margin-bottom:10px;
+  z-index: 5;
 }
 .arrow{
   text-align:center;
